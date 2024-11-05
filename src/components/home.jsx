@@ -11,10 +11,11 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
-  background-color: black;
-  color: white;
+  background-color: #111;
+  color: #fff;
   padding: 20px;
   text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;
 
 const Nav = styled.nav`
@@ -32,7 +33,8 @@ const Logo = styled.div`
   align-items: center;
 
   img {
-    margin-right: 10px;
+    margin-right: 15px;
+    border-radius: 50%; /* Make logo round */
   }
 `;
 
@@ -45,13 +47,14 @@ const TextContainer = styled.div`
 
 const CompanyName = styled.span`
   font-size: 1.5em;
-  font-family: 'Roboto', sans-serif; /* Apply the font here */
+  font-family: 'Abhaya Libre SemiBold', sans-serif; /* Apply the font here */
   font-weight: bold;
 `;
 
 const Tagline = styled.span`
   font-size: 0.9em;
   font-weight: normal;
+  font-family: 'Abhaya Libre SemiBold'
 `;
 
 const NavLinks = styled.div`
@@ -69,9 +72,21 @@ const Section = styled.section`
 `;
 
 const Hero = styled(Section)`
-  background: linear-gradient(45deg, #6a11cb, #2575fc);
-  color: white;
-  padding: 100px 0;
+  background: linear-gradient(45deg, #528BB6, #2575fc);
+  color: #fff;
+  padding: 100px 20px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.2;
+    background: url(${rezonix}) no-repeat center center/cover; /* Optional background image */
+  }
 `;
 
 const Title = styled.h2`
@@ -87,15 +102,15 @@ const Subtitle = styled.p`
 const Button = styled.a`
   padding: 10px 20px;
   background: white;
-  color: #6a11cb;
+  color: #528BB6;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
 `;
 
-const About = styled(Section)`
-  background-color: #f4f4f4;
-`;
+// const About = styled(Section)`
+//   background-color: #f4f4f4;
+// `;
 
 const Services = styled(Section)`
   background-color: #fff;
@@ -105,25 +120,30 @@ const ServiceCard = styled.div`
   display: inline-block;
   width: 300px;
   padding: 20px;
-  margin: 10px;
+  margin: 15px;
   background: white;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+  }
 
   @media (max-width: 768px) {
     width: 90%;
   }
 `;
-
 const ServiceIcon = styled.div`
   font-size: 3em;
   margin-bottom: 20px;
-  color: #2575fc;
+  color: #528BB6;
 `;
 
 const Testimonials = styled(Section)`
   background-color: #f4f4f4;
+  font-family: 'Abhaya Libre SemiBold'
 `;
 
 const TestimonialCard = styled.div`
@@ -135,6 +155,7 @@ const TestimonialCard = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: left;
+  font-family: 'Abhaya Libre SemiBold'
 
   @media (max-width: 768px) {
     width: 90%;
@@ -142,14 +163,17 @@ const TestimonialCard = styled.div`
 `;
 
 const Footer = styled.footer`
-  background-color: #6a11cb;
+  background-color: #528BB6;
   color: white;
-  text-align: center;
-  padding: 50px 0;
+  text-align: left;  
+  padding: 20px 0;
+  font-family: 'Abhaya Libre SemiBold'
 `;
 
 const ContactInfo = styled.div`
-  font-size: 1.2em;
+  font-size: 15px;
+  padding-left: 20px;
+  font-family: 'Abhaya Libre SemiBold'
 `;
 
 function Home() {
@@ -167,7 +191,7 @@ function Home() {
           <NavLinks>
             {/* <a href="#services">Services</a>
             <a href="#testimonials">Testimonials</a> */}
-            <a href="#contact">Get in Touch</a>
+            <a href="#">Rezonix app</a>
           </NavLinks>
         </Nav>
       </Header>
@@ -177,13 +201,6 @@ function Home() {
         <Subtitle>Innovating the Future, One Device at a Time</Subtitle>
         <Button href="#contact">Get in Touch</Button>
       </Hero>
-
-      <About id="about">
-        <Title>About Us</Title>
-        <Subtitle>
-          We are a leading provider of cutting-edge IoT solutions, empowering businesses to connect and automate like never before.
-        </Subtitle>
-      </About>
 
       <Services id="services">
         <Title>Our Services</Title>
@@ -219,10 +236,12 @@ function Home() {
       </Testimonials>
 
       <Footer id="contact">
-        <Title>Get in Touch</Title>
+        
         <ContactInfo>
-          <p>Email: hello@rezonix.in</p>
-          <p>Phone: +91 9648929856</p>
+          <p style={{ fontSize: 22 }}>Contact Us</p>
+          <p>Plot no. 9, 4 Bay, Institutional Area, Sector 32, Gurugram, Haryana 122003</p>
+          <p>Email: info@rezonix.com</p>
+          <p>Phone: +(91)8853159576</p>
         </ContactInfo>
       </Footer>
     </Container>

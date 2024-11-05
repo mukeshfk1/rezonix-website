@@ -1,18 +1,17 @@
-
-import './App.css';
-import Home from './components/home';
+import React from 'react';
 import Rezocontrol from './components/rezocontrol';
+import Index from './components/home-new';
 import { Route, Routes } from 'react-router-dom';
+
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Home />}/>
         <Route path='/downloads/rezocontrol-app' element={<Rezocontrol />}/>
+        <Route path='/home' element={<Index />}/>
       </Routes>
-    </>
-    
+    </>   
   );
 }
 
